@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse PulseNest wireless earbuds, headphones, chargers, and mobile accessories. Filter by price, category, color, and specifications.">
+  <title>Shop Wireless Audio & Accessories | PulseNest</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- TOAST CONTAINER FOR DYNAMIC NOTIFICATIONS -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- PERSISTENT HEADER -->
+  <header class="header-wrapper">
+    <div class="container header-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="logo" aria-label="PulseNest Home">
+        PulseNest<span class="logo-dot"></span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="shop.html" class="nav-link active">Shop</a></li>
+          <li><a href="index.html#popular-categories" class="nav-link">Categories</a></li>
+          <li><a href="index.html#why-choose-us" class="nav-link">Support</a></li>
+          <li><a href="#" class="nav-link">Account</a></li>
+        </ul>
+      </nav>
+
+      <!-- Persistent Global Search -->
+      <div class="header-search">
+        <label for="global-search-input" class="sr-only">Search products</label>
+        <span class="search-icon" aria-hidden="true">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </span>
+        <input type="search" id="global-search-input" class="search-input" placeholder="Search earbuds, chargers, headphones...">
+        
+        <!-- Search Autocomplete Suggestions Dropdown -->
+        <div id="search-autocomplete-dropdown" class="search-dropdown">
+          <div class="search-title">Popular searches</div>
+          <ul class="search-list">
+            <li><button class="search-item-btn">PulsePods Pro</button></li>
+            <li><button class="search-item-btn">PulseMax Headphones</button></li>
+            <li><button class="search-item-btn">MagCharge Pad</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Action Icons -->
+      <div class="header-actions">
+        <!-- Wishlist -->
+        <div class="wishlist-btn-wrapper">
+          <button class="btn-icon header-wishlist-btn" id="header-wishlist-btn" aria-label="Wishlist">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg>
+            <span class="wishlist-badge" id="header-wishlist-badge" aria-label="0 items in wishlist">0</span>
+          </button>
+        </div>
+
+        <!-- Cart -->
+        <div class="cart-btn-wrapper">
+          <a href="cart.html" class="btn-icon" aria-label="Shopping Cart" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;width:var(--touch-target-min);height:var(--touch-target-min);">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 22a1 1 0 100-2 1 1 0 000 2zm7 0a1 1 0 100-2 1 1 0 000 2zm3-4H5.75L3 2H1m4 4h16l-2 9H6.25"></path></svg>
+            <span class="cart-badge" id="header-cart-badge">0</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menu-toggle-btn" class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-panel">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION OVERLAY DRAWER -->
+  <div id="mobile-nav-panel" class="mobile-nav" aria-hidden="true" role="dialog">
+    <div class="mobile-nav-content">
+      <button id="mobile-nav-close-btn" class="mobile-nav-close" aria-label="Close navigation menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      
+      <!-- Mobile Search Form -->
+      <div style="position: relative; margin-top: var(--space-8);">
+        <label for="mobile-search-input" class="sr-only">Search</label>
+        <input type="text" id="mobile-search-input" class="input-control" placeholder="Search PulseNest..." style="padding-left: 40px; height: 44px;">
+        <span style="position: absolute; left: 12px; top: 12px; color: var(--color-text-secondary);">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </span>
+      </div>
+
+      <ul class="mobile-links">
+        <li><a href="shop.html" class="nav-link active">Shop All Products</a></li>
+        <li><a href="index.html#popular-categories" class="nav-link">Categories</a></li>
+        <li><a href="index.html#why-choose-us" class="nav-link">Our Technology</a></li>
+        <li><a href="#" class="nav-link">Support & FAQs</a></li>
+        <li><a href="#" class="nav-link">My Account</a></li>
+      </ul>
+      <div style="margin-top: auto; padding-top: var(--space-32); border-top: 1px solid var(--color-border);">
+        <p class="caption">Free 30-Day Returns & Secure SSL Payments</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BREADCRUMBS BAR -->
+  <div class="breadcrumbs-wrapper" aria-label="Breadcrumb">
+    <div class="container">
+      <ol class="breadcrumbs">
+        <li><a href="index.html">Home</a></li>
+        <li>Shop</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- SHOP MAIN CONTAINER -->
+  <main class="container section">
+    <div class="shop-header">
+      <div>
+        <h1 style="font-size: 32px; margin-bottom: var(--space-4);">All Products</h1>
+        <p class="shop-results-count" id="shop-results-count">Showing 0 of 0 products</p>
+      </div>
+      
+      <!-- Sorting Selector -->
+      <div class="sort-dropdown-container">
+        <label for="shop-sort-select" class="sort-label">Sort by:</label>
+        <select id="shop-sort-select" class="sort-select" aria-label="Sort products">
+          <option value="featured">Featured</option>
+          <option value="price-low-high">Price: Low to High</option>
+          <option value="price-high-low">Price: High to Low</option>
+          <option value="newest">Newest</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Mobile Filters Trigger Bar (Collapsed on Desktop) -->
+    <div class="mobile-filter-bar">
+      <button id="mobile-filter-trigger-btn" class="mobile-filter-trigger" aria-label="Open product filters drawer">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+        Filter Products
+      </button>
+      <span class="caption" id="mobile-filter-summary">0 filters active</span>
+    </div>
+
+    <div class="shop-layout">
+      <!-- SIDEBAR FILTERS (Sticky on Desktop) -->
+      <aside class="shop-sidebar" aria-label="Product Filters">
+        <div class="filter-title">
+          <span>Filters</span>
+          <button id="desktop-clear-filters-btn" class="btn-text" style="font-size: 14px; font-weight: 500; display: none;">Clear All</button>
+        </div>
+
+        <!-- Category Group -->
+        <div class="filter-group">
+          <span class="filter-group-title">Category</span>
+          <div class="filter-options">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox filter-category-checkbox" value="Wireless Earbuds">
+              Wireless Earbuds
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox filter-category-checkbox" value="Wireless Headphones">
+              Wireless Headphones
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox filter-category-checkbox" value="Mobile Accessories">
+              Mobile Accessories
+            </label>
+          </div>
+        </div>
+
+        <!-- Price Range Group -->
+        <div class="filter-group">
+          <span class="filter-group-title">Max Price</span>
+          <div class="filter-options price-range-container">
+            <input type="range" id="price-slider" class="price-range-slider" min="19" max="200" value="200" aria-label="Max Price Range">
+            <div class="price-range-values">
+              <span>$19</span>
+              <span id="price-slider-value" style="font-weight: 700; color: var(--color-primary);">$200</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color Group -->
+        <div class="filter-group">
+          <span class="filter-group-title">Color</span>
+          <div class="filter-options">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox filter-color-checkbox" value="black">
+              Black
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox filter-color-checkbox" value="white">
+              White
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox filter-color-checkbox" value="navy">
+              Navy
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox filter-color-checkbox" value="silver">
+              Silver
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox filter-color-checkbox" value="blue">
+              Blue
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox filter-color-checkbox" value="gray">
+              Gray
+            </label>
+          </div>
+        </div>
+
+        <!-- Features Group -->
+        <div class="filter-group">
+          <span class="filter-group-title">Features</span>
+          <div class="filter-options">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox filter-feature-checkbox" value="noise cancellation">
+              Noise Cancellation
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox filter-feature-checkbox" value="wireless charging">
+              Wireless Charging
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox filter-feature-checkbox" value="fast charge">
+              Fast Charge
+            </label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- PRODUCTS CONTENT AREA -->
+      <div class="shop-content-wrapper">
+        <!-- 3-Column Desktop Grid, 2-Column Tablet Grid, 1-Column Mobile Grid -->
+        <div id="shop-products-grid" class="grid grid-mobile-1 grid-tablet-2 grid-desktop-3">
+          <!-- Dynamic listing items rendered by app.js -->
+        </div>
+
+        <!-- Empty State Container (Hidden by default) -->
+        <div id="shop-empty-state" style="display: none; text-align: center; padding: var(--space-64) var(--space-16);">
+          <div style="color: var(--color-text-secondary); margin-bottom: var(--space-16);">
+            <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 style="font-size: 20px; margin-bottom: var(--space-8);">No products found</h3>
+          <p>Try relaxing your filters or resetting search parameters to discover products.</p>
+          <button id="reset-filters-btn" class="btn btn-primary" style="margin-top: var(--space-16);">Reset All Filters</button>
+        </div>
+
+        <!-- Pagination Bar -->
+        <nav id="shop-pagination-container" class="pagination-container" aria-label="Product Pages Navigation">
+          <!-- Dynamically populated page buttons by app.js -->
+        </nav>
+      </div>
+    </div>
+  </main>
+
+  <!-- MOBILE FILTER DRAWER BOTTOM SHEET -->
+  <div id="filter-drawer-overlay" class="filter-drawer-overlay" aria-hidden="true"></div>
+  <div id="filter-drawer" class="filter-drawer" role="dialog" aria-modal="true" aria-labelledby="mobile-filter-title">
+    <div class="filter-drawer-header">
+      <h2 id="mobile-filter-title" style="font-size: 18px;">Filter & Sort</h2>
+      <button id="filter-drawer-close-btn" class="mobile-nav-close" style="align-self: unset;" aria-label="Close filters panel">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    
+    <div class="filter-drawer-body">
+      <!-- Mobile Category Options -->
+      <div class="filter-group">
+        <span class="filter-group-title">Category</span>
+        <div class="filter-options">
+          <label class="filter-checkbox-label">
+            <input type="checkbox" class="filter-checkbox mobile-filter-category-checkbox" value="Wireless Earbuds">
+            Wireless Earbuds
+          </label>
+          <label class="filter-checkbox-label">
+            <input type="checkbox" class="filter-checkbox mobile-filter-category-checkbox" value="Wireless Headphones">
+            Wireless Headphones
+          </label>
+          <label class="filter-checkbox-label">
+            <input type="checkbox" class="filter-checkbox mobile-filter-category-checkbox" value="Mobile Accessories">
+            Mobile Accessories
+          </label>
+        </div>
+      </div>
+
+      <!-- Mobile Price Slider -->
+      <div class="filter-group">
+        <span class="filter-group-title">Max Price</span>
+        <div class="filter-options price-range-container">
+          <input type="range" id="mobile-price-slider" class="price-range-slider" min="19" max="200" value="200" aria-label="Max Price Range Mobile">
+          <div class="price-range-values">
+            <span>$19</span>
+            <span id="mobile-price-slider-value" style="font-weight: 700; color: var(--color-primary);">$200</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Color Options -->
+      <div class="filter-group">
+        <span class="filter-group-title">Color</span>
+        <div class="filter-options">
+          <label class="filter-checkbox-label">
+            <input type="checkbox" class="filter-checkbox mobile-filter-color-checkbox" value="black">
+            Black
+          </label>
+          <label class="filter-checkbox-label">
+            <input type="checkbox" class="filter-checkbox mobile-filter-color-checkbox" value="white">
+            White
+          </label>
+          <label class="filter-checkbox-label">
+            <input type="checkbox" class="filter-checkbox mobile-filter-color-checkbox" value="navy">
+            Navy
+          </label>
+          <label class="filter-checkbox-label">
+            <input type="checkbox" class="filter-checkbox mobile-filter-color-checkbox" value="silver">
+            Silver
+          </label>
+          <label class="filter-checkbox-label">
+            <input type="checkbox" class="filter-checkbox mobile-filter-color-checkbox" value="blue">
+            Blue
+          </label>
+          <label class="filter-checkbox-label">
+            <input type="checkbox" class="filter-checkbox mobile-filter-color-checkbox" value="gray">
+            Gray
+          </label>
+        </div>
+      </div>
+
+      <!-- Mobile Features Group -->
+      <div class="filter-group">
+        <span class="filter-group-title">Features</span>
+        <div class="filter-options">
+          <label class="filter-checkbox-label">
+            <input type="checkbox" class="filter-checkbox mobile-filter-feature-checkbox" value="noise cancellation">
+            Noise Cancellation
+          </label>
+          <label class="filter-checkbox-label">
+            <input type="checkbox" class="filter-checkbox mobile-filter-feature-checkbox" value="wireless charging">
+            Wireless Charging
+          </label>
+          <label class="filter-checkbox-label">
+            <input type="checkbox" class="filter-checkbox mobile-filter-feature-checkbox" value="fast charge">
+            Fast Charge
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Footer Actions (Sticky bottom bar) -->
+    <div class="filter-drawer-footer">
+      <button id="mobile-clear-filters-btn" class="btn btn-secondary">Clear All</button>
+      <button id="mobile-apply-filters-btn" class="btn btn-primary">Apply Filters</button>
+    </div>
+  </div>
+
+  <!-- STICKY COMPARISON ENGINE FLOATING OVERLAY -->
+  <div id="compare-drawer" class="compare-drawer" aria-label="Product comparison panel" role="region">
+    <div class="container compare-drawer-container">
+      <div class="compare-drawer-header">
+        <span class="compare-drawer-title">Comparing <strong id="compare-count">0</strong> of 3 products</span>
+      </div>
+      <div class="compare-drawer-products" id="compare-drawer-products">
+        <!-- Dynanically populated drawer preview slots -->
+      </div>
+      <div class="compare-drawer-actions">
+        <button id="clear-compare-btn" class="btn btn-secondary btn-sm" style="min-width: unset; height: 44px;">Clear</button>
+        <button id="view-compare-btn" class="btn btn-primary btn-sm" style="min-width: unset; height: 44px;">Compare Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PERSISTENT FOOTER -->
+  <footer class="footer-wrapper">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="PulseNest Home">
+            PulseNest<span class="logo-dot"></span>
+          </a>
+          <p>Delivering high-fidelity sound, swift power, and charging accessories built with structural and acoustic integrity.</p>
+        </div>
+        <div class="footer-links-col">
+          <span class="footer-links-title">Shop</span>
+          <ul class="footer-links-list">
+            <li><a href="shop.html">Wireless Earbuds</a></li>
+            <li><a href="shop.html">Wireless Headphones</a></li>
+            <li><a href="shop.html">Mobile Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <span class="footer-links-title">Support</span>
+          <ul class="footer-links-list">
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ & Help Center</a></li>
+            <li><a href="#">Shipping Information</a></li>
+            <li><a href="#">Returns Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <span class="footer-links-title">Legal</span>
+          <ul class="footer-links-list">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 PulseNest Inc. All rights reserved.</p>
+        <div class="footer-payments" aria-label="Accepted payment methods">
+          <span class="payment-badge">Visa</span>
+          <span class="payment-badge">Mastercard</span>
+          <span class="payment-badge">Amex</span>
+          <span class="payment-badge">Apple Pay</span>
+          <span class="payment-badge">Google Pay</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DYNAMIC QUICK VIEW MODAL OVERLAY -->
+  <div id="quickview-modal" class="modal-overlay" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+      <button id="modal-close-btn" class="btn-icon modal-close" aria-label="Close modal window">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div id="modal-dynamic-content">
+        <!-- Dynamically rendered by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

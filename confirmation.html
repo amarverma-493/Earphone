@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Order confirmation for PulseNest purchase" />
+  <title>Order Confirmation | PulseNest</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="checkout-header">
+    <div class="container checkout-header-inner">
+      <a href="index.html" class="logo" aria-label="PulseNest Home">PulseNest<span class="logo-dot"></span></a>
+      <div class="checkout-secure-badge">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Secure Checkout
+      </div>
+    </div>
+  </header>
+
+  <main class="container confirmation-main" id="confirmation-main">
+    <section class="order-success-section">
+      <div class="order-success-banner">
+        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+        <h1>Thank you for your purchase!</h1>
+      </div>
+      <p class="order-number">Order #<span id="order-number"></span></p>
+    </section>
+
+    <section class="order-summary-section">
+      <h2>Your Order</h2>
+      <div class="order-items" id="order-items"></div>
+      <div class="order-total" id="order-total"></div>
+    </section>
+
+    <section class="shipping-timeline-section">
+      <h2>Shipping</h2>
+      <p id="shipping-timeline"></p>
+    </section>
+
+    <section class="email-confirmation-section">
+      <p>A confirmation email has been sent to <strong id="customer-email"></strong></p>
+    </section>
+
+    <section class="support-links-section">
+      <h3>Need Help?</h3>
+      <ul>
+        <li><a href="mailto:support@pulsenest.com">Contact Support</a></li>
+        <li><a href="#">Order Status</a></li>
+        <li><a href="#">Returns &amp; Refunds</a></li>
+      </ul>
+    </section>
+
+    <section class="recommended-products-section">
+      <h3>Recommended for You</h3>
+      <div class="recommended-grid" id="recommended-products"></div>
+    </section>
+
+    <div class="continue-shopping-cta">
+      <a href="index.html" class="btn btn-primary">Continue Shopping</a>
+    </div>
+  </main>
+
+  <footer class="checkout-footer">
+    <div class="container">
+      <p>&copy; 2026 PulseNest Inc. &nbsp;·&nbsp; <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms of Service</a> &nbsp;·&nbsp; <a href="#">Returns Policy</a></p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

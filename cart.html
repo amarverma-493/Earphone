@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Review your PulseNest cart. Edit quantities, apply promo codes, and proceed to secure checkout.">
+  <title>Your Cart | PulseNest</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- HEADER -->
+  <header class="header-wrapper">
+    <div class="container header-container">
+      <a href="index.html" class="logo" aria-label="PulseNest Home">PulseNest<span class="logo-dot"></span></a>
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="shop.html" class="nav-link">Shop</a></li>
+          <li><a href="index.html#popular-categories" class="nav-link">Categories</a></li>
+          <li><a href="index.html#why-choose-us" class="nav-link">Support</a></li>
+          <li><a href="#" class="nav-link">Account</a></li>
+        </ul>
+      </nav>
+      <div class="header-search">
+        <label for="global-search-input" class="sr-only">Search products</label>
+        <span class="search-icon" aria-hidden="true">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </span>
+        <input type="search" id="global-search-input" class="search-input" placeholder="Search PulseNest...">
+        <div id="search-autocomplete-dropdown" class="search-dropdown">
+          <div class="search-title">Popular searches</div>
+          <ul class="search-list">
+            <li><button class="search-item-btn">PulsePods Pro</button></li>
+            <li><button class="search-item-btn">PulseMax Headphones</button></li>
+            <li><button class="search-item-btn">MagCharge Pad</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="header-actions">
+        <!-- Wishlist -->
+        <div class="wishlist-btn-wrapper">
+          <button class="btn-icon header-wishlist-btn" id="header-wishlist-btn" aria-label="Wishlist">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg>
+            <span class="wishlist-badge" id="header-wishlist-badge" aria-label="0 items in wishlist">0</span>
+          </button>
+        </div>
+        <div class="cart-btn-wrapper">
+          <a href="cart.html" class="btn-icon" aria-label="Shopping Cart" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;width:var(--touch-target-min);height:var(--touch-target-min);">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 22a1 1 0 100-2 1 1 0 000 2zm7 0a1 1 0 100-2 1 1 0 000 2zm3-4H5.75L3 2H1m4 4h16l-2 9H6.25"></path></svg>
+            <span class="cart-badge" id="header-cart-badge">0</span>
+          </a>
+        </div>
+        <button id="menu-toggle-btn" class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-panel">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <div id="mobile-nav-panel" class="mobile-nav" aria-hidden="true" role="dialog">
+    <div class="mobile-nav-content">
+      <button id="mobile-nav-close-btn" class="mobile-nav-close" aria-label="Close navigation menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <ul class="mobile-links">
+        <li><a href="shop.html" class="nav-link">Shop All Products</a></li>
+        <li><a href="index.html#popular-categories" class="nav-link">Categories</a></li>
+        <li><a href="index.html#why-choose-us" class="nav-link">Support & FAQs</a></li>
+        <li><a href="#" class="nav-link">My Account</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BREADCRUMBS -->
+  <div class="breadcrumbs-wrapper">
+    <div class="container">
+      <ol class="breadcrumbs">
+        <li><a href="index.html">Home</a></li>
+        <li>Cart</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- MAIN CART LAYOUT -->
+  <main class="container section" id="cart-main">
+    <div class="cart-page-header">
+      <h1 class="cart-page-title">Your Cart <span class="cart-item-count-label" id="cart-item-count-label">(0 items)</span></h1>
+      <a href="shop.html" class="cart-continue-link">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        Continue Shopping
+      </a>
+    </div>
+
+    <!-- EMPTY STATE -->
+    <div id="cart-empty-state" class="cart-empty-state" style="display: none;">
+      <div class="cart-empty-icon" aria-hidden="true">
+        <svg width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 22a1 1 0 100-2 1 1 0 000 2zm7 0a1 1 0 100-2 1 1 0 000 2zm3-4H5.75L3 2H1m4 4h16l-2 9H6.25"></path></svg>
+      </div>
+      <h2>Your cart is empty</h2>
+      <p>Looks like you haven't added anything yet. Discover our range of premium audio gear.</p>
+      <a href="shop.html" class="btn btn-primary" style="margin-top: var(--space-24);">Browse Products</a>
+    </div>
+
+    <!-- CART CONTENT (Items + Summary) -->
+    <div class="cart-layout" id="cart-content-wrapper">
+
+      <!-- LEFT: CART ITEMS -->
+      <div class="cart-items-col">
+
+        <!-- Guarantee Strip -->
+        <div class="cart-guarantee-strip" aria-label="Purchase guarantees">
+          <div class="cart-guarantee-item">
+            <svg width="18" height="18" fill="none" stroke="var(--color-success)" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"></path></svg>
+            <span>Free 30-Day Returns</span>
+          </div>
+          <div class="cart-guarantee-item">
+            <svg width="18" height="18" fill="none" stroke="var(--color-success)" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span>Secure SSL Checkout</span>
+          </div>
+          <div class="cart-guarantee-item">
+            <svg width="18" height="18" fill="none" stroke="var(--color-success)" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"></rect><path d="m16 8 5 2v5h-5V8z"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            <span>Free Shipping over $75</span>
+          </div>
+        </div>
+
+        <!-- Items list (dynamically rendered) -->
+        <div id="cart-items-list">
+          <!-- Populated by app.js initCart() -->
+        </div>
+
+      </div>
+
+      <!-- RIGHT: ORDER SUMMARY -->
+      <aside class="cart-summary-col" aria-label="Order Summary">
+        <div class="cart-summary-card">
+          <h2 class="cart-summary-title">Order Summary</h2>
+
+          <!-- Promo Code -->
+          <div class="cart-promo-section">
+            <label for="promo-code-input" class="cart-promo-label">Promo Code</label>
+            <div class="cart-promo-row">
+              <input type="text" id="promo-code-input" class="input-control" placeholder="Enter code" autocomplete="off" aria-label="Promo code input" style="flex: 1; height: 44px;">
+              <button id="apply-promo-btn" class="btn btn-secondary" style="height: 44px; white-space: nowrap;">Apply</button>
+            </div>
+            <p id="promo-feedback" class="cart-promo-feedback" aria-live="polite"></p>
+          </div>
+
+          <!-- Cost Breakdown -->
+          <div class="cart-summary-breakdown" id="cart-summary-breakdown">
+            <!-- Dynamically rendered -->
+          </div>
+
+          <!-- Shipping Estimate -->
+          <div class="cart-shipping-estimate" id="cart-shipping-estimate">
+            <!-- Dynamically rendered -->
+          </div>
+
+          <!-- Total -->
+          <div class="cart-summary-total" id="cart-summary-total">
+            <!-- Dynamically rendered -->
+          </div>
+
+          <!-- Checkout CTA -->
+          <a href="checkout.html" class="btn btn-primary cart-checkout-btn" id="cart-checkout-cta" style="font-size: 17px; height: 56px; margin-top: var(--space-20); text-decoration: none; display: flex; align-items: center; justify-content: center; gap: var(--space-8);">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            Proceed to Checkout
+          </a>
+
+          <!-- Trust badges row -->
+          <div class="cart-trust-badges">
+            <span class="payment-badge">Visa</span>
+            <span class="payment-badge">Mastercard</span>
+            <span class="payment-badge">Amex</span>
+            <span class="payment-badge">Apple Pay</span>
+            <span class="payment-badge">Google Pay</span>
+          </div>
+        </div>
+
+        <!-- Guarantee Details Block -->
+        <div class="cart-guarantee-block">
+          <div class="cart-guarantee-row">
+            <svg width="40" height="40" fill="none" stroke="var(--color-success)" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <div>
+              <span class="cart-guarantee-title">PulseNest Guarantee</span>
+              <span class="cart-guarantee-desc">Every order is covered by our 30-day no-questions return policy and 1-year manufacturer warranty on all hardware products.</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- VARIANT EDIT MODAL (inline drawer) -->
+  <div id="cart-variant-overlay" class="filter-drawer-overlay" aria-hidden="true"></div>
+  <div id="cart-variant-drawer" class="filter-drawer" role="dialog" aria-modal="true" aria-labelledby="variant-drawer-title">
+    <div class="filter-drawer-header">
+      <h2 id="variant-drawer-title" style="font-size: 18px;">Edit Variant</h2>
+      <button id="cart-variant-close-btn" class="mobile-nav-close" aria-label="Close variant editor">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <div class="filter-drawer-body" id="cart-variant-drawer-body">
+      <!-- Populated dynamically -->
+    </div>
+    <div class="filter-drawer-footer">
+      <button id="cart-variant-cancel-btn" class="btn btn-secondary">Cancel</button>
+      <button id="cart-variant-save-btn" class="btn btn-primary">Save Changes</button>
+    </div>
+  </div>
+
+  <!-- QUICK VIEW MODAL (shared) -->
+  <div id="quickview-modal" class="modal-overlay" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+      <button id="modal-close-btn" class="btn-icon modal-close" aria-label="Close modal">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div id="modal-dynamic-content"></div>
+    </div>
+  </div>
+
+  <!-- COMPARE DRAWER (shared) -->
+  <div id="compare-drawer" class="compare-drawer" aria-label="Product comparison panel" role="region">
+    <div class="container compare-drawer-container">
+      <div class="compare-drawer-header">
+        <span class="compare-drawer-title">Comparing <strong id="compare-count">0</strong> of 3 products</span>
+      </div>
+      <div class="compare-drawer-products" id="compare-drawer-products"></div>
+      <div class="compare-drawer-actions">
+        <button id="clear-compare-btn" class="btn btn-secondary btn-sm" style="min-width: unset; height: 44px;">Clear</button>
+        <button id="view-compare-btn" class="btn btn-primary btn-sm" style="min-width: unset; height: 44px;">Compare Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer-wrapper">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">PulseNest<span class="logo-dot"></span></a>
+          <p>High-fidelity audio and charging accessories engineered for everyday performance.</p>
+        </div>
+        <div class="footer-links-col">
+          <span class="footer-links-title">Shop</span>
+          <ul class="footer-links-list">
+            <li><a href="shop.html">Wireless Earbuds</a></li>
+            <li><a href="shop.html">Wireless Headphones</a></li>
+            <li><a href="shop.html">Mobile Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <span class="footer-links-title">Support</span>
+          <ul class="footer-links-list">
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ & Help Center</a></li>
+            <li><a href="#">Shipping Information</a></li>
+            <li><a href="#">Returns Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <span class="footer-links-title">Legal</span>
+          <ul class="footer-links-list">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 PulseNest Inc. All rights reserved.</p>
+        <div class="footer-payments">
+          <span class="payment-badge">Visa</span>
+          <span class="payment-badge">Mastercard</span>
+          <span class="payment-badge">Amex</span>
+          <span class="payment-badge">Apple Pay</span>
+          <span class="payment-badge">Google Pay</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

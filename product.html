@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PulsePods Pro – Premium wireless earbuds with Active Noise Cancellation, 30-hour battery, and Qi wireless charging. Shop now at PulseNest.">
+  <title>PulsePods Pro – Wireless Earbuds | PulseNest</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- TOAST NOTIFICATIONS -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- PERSISTENT HEADER -->
+  <header class="header-wrapper">
+    <div class="container header-container">
+      <a href="index.html" class="logo" aria-label="PulseNest Home">PulseNest<span class="logo-dot"></span></a>
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="shop.html" class="nav-link">Shop</a></li>
+          <li><a href="index.html#popular-categories" class="nav-link">Categories</a></li>
+          <li><a href="index.html#why-choose-us" class="nav-link">Support</a></li>
+          <li><a href="#" class="nav-link">Account</a></li>
+        </ul>
+      </nav>
+      <div class="header-search">
+        <label for="global-search-input" class="sr-only">Search products</label>
+        <span class="search-icon" aria-hidden="true">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </span>
+        <input type="search" id="global-search-input" class="search-input" placeholder="Search PulseNest...">
+        <div id="search-autocomplete-dropdown" class="search-dropdown">
+          <div class="search-title">Popular searches</div>
+          <ul class="search-list">
+            <li><button class="search-item-btn">PulsePods Pro</button></li>
+            <li><button class="search-item-btn">PulseMax Headphones</button></li>
+            <li><button class="search-item-btn">MagCharge Pad</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="header-actions">
+        <!-- Wishlist -->
+        <div class="wishlist-btn-wrapper">
+          <button class="btn-icon header-wishlist-btn" id="header-wishlist-btn" aria-label="Wishlist">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg>
+            <span class="wishlist-badge" id="header-wishlist-badge" aria-label="0 items in wishlist">0</span>
+          </button>
+        </div>
+        <div class="cart-btn-wrapper">
+          <a href="cart.html" class="btn-icon" aria-label="Shopping Cart" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;width:var(--touch-target-min);height:var(--touch-target-min);">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 22a1 1 0 100-2 1 1 0 000 2zm7 0a1 1 0 100-2 1 1 0 000 2zm3-4H5.75L3 2H1m4 4h16l-2 9H6.25"></path></svg>
+            <span class="cart-badge" id="header-cart-badge">0</span>
+          </a>
+        </div>
+        <button id="menu-toggle-btn" class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-panel">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <div id="mobile-nav-panel" class="mobile-nav" aria-hidden="true" role="dialog">
+    <div class="mobile-nav-content">
+      <button id="mobile-nav-close-btn" class="mobile-nav-close" aria-label="Close navigation menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <ul class="mobile-links">
+        <li><a href="shop.html" class="nav-link">Shop All Products</a></li>
+        <li><a href="index.html#popular-categories" class="nav-link">Categories</a></li>
+        <li><a href="index.html#why-choose-us" class="nav-link">Support & FAQs</a></li>
+        <li><a href="#" class="nav-link">My Account</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BREADCRUMBS -->
+  <div class="breadcrumbs-wrapper">
+    <div class="container">
+      <ol class="breadcrumbs">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="shop.html">Wireless Earbuds</a></li>
+        <li>PulsePods Pro</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- PRODUCT DETAIL MAIN -->
+  <main class="container section" id="pdp-main">
+
+    <!-- TOP: GALLERY + INFO PANEL -->
+    <div class="pdp-layout">
+
+      <!-- LEFT: GALLERY -->
+      <div class="pdp-gallery">
+        <!-- Main Display -->
+        <div class="pdp-main-image" id="pdp-main-image" aria-label="Product gallery main view">
+          <div class="pdp-illustration-large" id="pdp-main-illustration">
+            <!-- Dynamically populated by app.js -->
+          </div>
+          <button class="pdp-zoom-btn" id="pdp-zoom-btn" aria-label="Zoom in on product image">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+          </button>
+        </div>
+
+        <!-- Thumbnail Strip -->
+        <div class="pdp-thumbnails" id="pdp-thumbnails" role="listbox" aria-label="Product angle thumbnails">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </div>
+
+      <!-- RIGHT: PRODUCT INFO PANEL -->
+      <div class="pdp-info">
+        <!-- Category breadcrumb label -->
+        <span class="card-category" style="font-size: 13px;">Wireless Earbuds</span>
+
+        <!-- Product Name -->
+        <h1 class="pdp-title" id="pdp-product-name">PulsePods Pro</h1>
+
+        <!-- Price Row -->
+        <div class="pdp-price-row">
+          <span class="pdp-price" id="pdp-price">$129</span>
+          <span class="pdp-stock-indicator pdp-in-stock" id="pdp-stock-badge">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            In Stock
+          </span>
+        </div>
+
+        <!-- Key Specs Summary Pills -->
+        <div class="pdp-spec-pills" id="pdp-spec-pills">
+          <!-- Dynamically populated by app.js -->
+        </div>
+
+        <!-- Color Variant Selector -->
+        <div class="pdp-option-group">
+          <label class="pdp-option-label">
+            Color: <strong id="pdp-selected-color-label">Midnight Black</strong>
+          </label>
+          <div class="pdp-color-selector" id="pdp-color-selector" role="listbox" aria-label="Select color variant">
+            <!-- Dynamically populated by app.js -->
+          </div>
+        </div>
+
+        <!-- Ear Tip Size Selector -->
+        <div class="pdp-option-group">
+          <label class="pdp-option-label">Ear Tip Size</label>
+          <div class="pdp-size-selector" role="group" aria-label="Select ear tip size">
+            <button class="pdp-size-btn active" aria-pressed="true" aria-label="Small size">S</button>
+            <button class="pdp-size-btn" aria-pressed="false" aria-label="Medium size">M</button>
+            <button class="pdp-size-btn" aria-pressed="false" aria-label="Large size">L</button>
+          </div>
+        </div>
+
+        <!-- Quantity Selector -->
+        <div class="pdp-option-group">
+          <label class="pdp-option-label">Quantity</label>
+          <div class="pdp-qty-selector">
+            <button class="pdp-qty-btn" id="pdp-qty-down" aria-label="Decrease quantity">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+            <span class="pdp-qty-value" id="pdp-qty-value">1</span>
+            <button class="pdp-qty-btn" id="pdp-qty-up" aria-label="Increase quantity">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Primary CTA -->
+        <div class="pdp-cta-group">
+          <button class="btn btn-primary pdp-add-to-cart" id="pdp-add-to-cart-btn" data-product-id="pulsepods-pro" style="font-size: 17px; height: 56px;">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 22a1 1 0 100-2 1 1 0 000 2zm7 0a1 1 0 100-2 1 1 0 000 2zm3-4H5.75L3 2H1m4 4h16l-2 9H6.25"></path></svg>
+            Add to Cart
+          </button>
+          <button class="btn btn-secondary pdp-wishlist-btn" id="pdp-wishlist-btn" data-product-id="pulsepods-pro" style="height: 56px; width: 56px; padding: 0; flex-shrink: 0;" aria-label="Save to wishlist">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg>
+          </button>
+        </div>
+
+        <!-- Trust & Confidence Panel -->
+        <div class="pdp-confidence-panel">
+          <div class="pdp-confidence-item">
+            <svg width="20" height="20" fill="none" stroke="var(--color-success)" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"></rect><path d="m16 8 5 2v5h-5V8z"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            <div>
+              <span class="pdp-confidence-label">Free Delivery</span>
+              <span class="pdp-confidence-value" id="pdp-delivery-estimate">Estimated by Thursday, Jul 10</span>
+            </div>
+          </div>
+          <div class="pdp-confidence-item">
+            <svg width="20" height="20" fill="none" stroke="var(--color-success)" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"></path></svg>
+            <div>
+              <span class="pdp-confidence-label">30-Day Returns</span>
+              <span class="pdp-confidence-value">Free returns on all orders</span>
+            </div>
+          </div>
+          <div class="pdp-confidence-item">
+            <svg width="20" height="20" fill="none" stroke="var(--color-success)" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <div>
+              <span class="pdp-confidence-label">Secure Checkout</span>
+              <span class="pdp-confidence-value">SSL encrypted & PCI compliant</span>
+            </div>
+          </div>
+          <div class="pdp-confidence-item">
+            <svg width="20" height="20" fill="none" stroke="var(--color-success)" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <div>
+              <span class="pdp-confidence-label">1-Year Warranty</span>
+              <span class="pdp-confidence-value">Full manufacturer coverage</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compatibility Note -->
+        <div class="pdp-compatibility">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          Compatible with iOS, Android, Windows, and macOS
+        </div>
+      </div>
+    </div>
+
+    <!-- TABS: Specs / Features / Reviews / FAQ -->
+    <div class="pdp-tabs-section" style="margin-top: var(--space-64);">
+      <div class="pdp-tabs-nav" role="tablist" aria-label="Product information tabs">
+        <button class="pdp-tab-btn active" role="tab" data-tab="features" aria-selected="true" aria-controls="tab-features" id="tab-btn-features">Features</button>
+        <button class="pdp-tab-btn" role="tab" data-tab="specs" aria-selected="false" aria-controls="tab-specs" id="tab-btn-specs">Specifications</button>
+        <button class="pdp-tab-btn" role="tab" data-tab="reviews" aria-selected="false" aria-controls="tab-reviews" id="tab-btn-reviews">Reviews</button>
+        <button class="pdp-tab-btn" role="tab" data-tab="faq" aria-selected="false" aria-controls="tab-faq" id="tab-btn-faq">FAQ</button>
+      </div>
+
+      <!-- Features Panel -->
+      <div class="pdp-tab-panel active" id="tab-features" role="tabpanel" aria-labelledby="tab-btn-features">
+        <div class="pdp-features-grid">
+          <div class="pdp-feature-card">
+            <div class="pdp-feature-icon" aria-hidden="true">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+            </div>
+            <h3 class="pdp-feature-title">Hybrid Active Noise Cancellation</h3>
+            <p class="pdp-feature-desc">Dual-microphone ANC system filters ambient noise in real time — on commutes, in offices, or noisy environments.</p>
+          </div>
+          <div class="pdp-feature-card">
+            <div class="pdp-feature-icon" aria-hidden="true">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+            </div>
+            <h3 class="pdp-feature-title">Qi Wireless Charging</h3>
+            <p class="pdp-feature-desc">The charging case supports Qi wireless pads. 15 minutes on a pad gives you 3 hours of earbud playback.</p>
+          </div>
+          <div class="pdp-feature-card">
+            <div class="pdp-feature-icon" aria-hidden="true">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <h3 class="pdp-feature-title">30-Hour Total Battery</h3>
+            <p class="pdp-feature-desc">6 hours in earbuds + 24 hours in the case. USB-C Quick Charge gives 1 hour of playtime in just 10 minutes.</p>
+          </div>
+          <div class="pdp-feature-card">
+            <div class="pdp-feature-icon" aria-hidden="true">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.79 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.72 1.13h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.83a16 16 0 006.29 6.29l1.07-1.07a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7a2 2 0 011.72 2z"></path></svg>
+            </div>
+            <h3 class="pdp-feature-title">Bluetooth 5.3 with Multipoint</h3>
+            <p class="pdp-feature-desc">Connect to two devices simultaneously. Instant audio switching between your phone and laptop without re-pairing.</p>
+          </div>
+          <div class="pdp-feature-card">
+            <div class="pdp-feature-icon" aria-hidden="true">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3 class="pdp-feature-title">IPX4 Splash Resistance</h3>
+            <p class="pdp-feature-desc">Rated for sweat and rain exposure. The earbuds are sealed and tested to withstand workout intensity sessions.</p>
+          </div>
+          <div class="pdp-feature-card">
+            <div class="pdp-feature-icon" aria-hidden="true">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path></svg>
+            </div>
+            <h3 class="pdp-feature-title">Transparency Mode</h3>
+            <p class="pdp-feature-desc">Pass-through mode lets external sound in without removing earbuds — ideal for conversations and situational awareness.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specifications Panel (Accordion) -->
+      <div class="pdp-tab-panel" id="tab-specs" role="tabpanel" aria-labelledby="tab-btn-specs">
+        <div class="pdp-accordion" id="pdp-specs-accordion">
+          <div class="pdp-accordion-item">
+            <button class="pdp-accordion-trigger" aria-expanded="true" aria-controls="acc-audio">
+              Audio & Connectivity
+              <svg class="pdp-accordion-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="pdp-accordion-body" id="acc-audio">
+              <table class="pdp-spec-table">
+                <tbody>
+                  <tr><th>Bluetooth Version</th><td>5.3 with Multipoint</td></tr>
+                  <tr><th>Audio Codecs</th><td>AAC, SBC</td></tr>
+                  <tr><th>Driver Size</th><td>10mm Dynamic Driver</td></tr>
+                  <tr><th>Frequency Range</th><td>20Hz – 20kHz</td></tr>
+                  <tr><th>Microphones</th><td>6 mics (3 per earbud)</td></tr>
+                  <tr><th>Noise Cancellation</th><td>Hybrid ANC (feedforward + feedback)</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="pdp-accordion-item">
+            <button class="pdp-accordion-trigger" aria-expanded="false" aria-controls="acc-battery">
+              Battery & Charging
+              <svg class="pdp-accordion-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="pdp-accordion-body" id="acc-battery" style="max-height: 0; overflow: hidden;">
+              <table class="pdp-spec-table">
+                <tbody>
+                  <tr><th>Earbud Battery</th><td>6 hours (ANC On), 8 hours (ANC Off)</td></tr>
+                  <tr><th>Case Battery</th><td>24 additional hours</td></tr>
+                  <tr><th>Total Playtime</th><td>30 hours total</td></tr>
+                  <tr><th>Quick Charge</th><td>10 min → 1 hour playback (USB-C)</td></tr>
+                  <tr><th>Wireless Charging</th><td>Qi compatible charging case</td></tr>
+                  <tr><th>Charge Port</th><td>USB-C (case)</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="pdp-accordion-item">
+            <button class="pdp-accordion-trigger" aria-expanded="false" aria-controls="acc-physical">
+              Physical & Compatibility
+              <svg class="pdp-accordion-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="pdp-accordion-body" id="acc-physical" style="max-height: 0; overflow: hidden;">
+              <table class="pdp-spec-table">
+                <tbody>
+                  <tr><th>Earbud Weight</th><td>5.4g per earbud</td></tr>
+                  <tr><th>Case Weight</th><td>45g</td></tr>
+                  <tr><th>Water Resistance</th><td>IPX4 (Earbuds only)</td></tr>
+                  <tr><th>Ear Tip Sizes</th><td>S / M / L silicone included</td></tr>
+                  <tr><th>Platform Support</th><td>iOS, Android, Windows, macOS</td></tr>
+                  <tr><th>Warranty</th><td>1-Year Limited Warranty</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reviews Panel -->
+      <div class="pdp-tab-panel" id="tab-reviews" role="tabpanel" aria-labelledby="tab-btn-reviews">
+        <div class="pdp-reviews-summary">
+          <div class="pdp-reviews-aggregate">
+            <div class="pdp-rating-score">4.8</div>
+            <div class="pdp-stars-row" aria-label="4.8 out of 5 stars">
+              <svg width="20" height="20" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg width="20" height="20" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg width="20" height="20" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg width="20" height="20" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg width="20" height="20" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            </div>
+            <div class="pdp-rating-count">Based on verified purchases</div>
+          </div>
+          <div class="pdp-rating-bars">
+            <div class="pdp-rating-bar-row"><span>5 ★</span><div class="pdp-bar-track"><div class="pdp-bar-fill" style="width: 72%"></div></div><span>72%</span></div>
+            <div class="pdp-rating-bar-row"><span>4 ★</span><div class="pdp-bar-track"><div class="pdp-bar-fill" style="width: 18%"></div></div><span>18%</span></div>
+            <div class="pdp-rating-bar-row"><span>3 ★</span><div class="pdp-bar-track"><div class="pdp-bar-fill" style="width: 6%"></div></div><span>6%</span></div>
+            <div class="pdp-rating-bar-row"><span>2 ★</span><div class="pdp-bar-track"><div class="pdp-bar-fill" style="width: 3%"></div></div><span>3%</span></div>
+            <div class="pdp-rating-bar-row"><span>1 ★</span><div class="pdp-bar-track"><div class="pdp-bar-fill" style="width: 1%"></div></div><span>1%</span></div>
+          </div>
+        </div>
+        <div class="pdp-reviews-notice">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          Review content is aggregated from verified purchasers and moderated for authenticity. Individual reviews are displayed in post-purchase communications.
+        </div>
+      </div>
+
+      <!-- FAQ Panel (Accordion) -->
+      <div class="pdp-tab-panel" id="tab-faq" role="tabpanel" aria-labelledby="tab-btn-faq">
+        <div class="pdp-accordion" id="pdp-faq-accordion">
+          <div class="pdp-accordion-item">
+            <button class="pdp-accordion-trigger" aria-expanded="false" aria-controls="faq-1">
+              Are the PulsePods Pro compatible with my iPhone?
+              <svg class="pdp-accordion-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="pdp-accordion-body" id="faq-1" style="max-height: 0; overflow: hidden;">
+              <p>Yes. The PulsePods Pro are fully compatible with iPhones running iOS 14 or later. They support AAC audio codec for high-quality playback on Apple devices. Siri voice assistant access is also supported via a long-press on the earbuds.</p>
+            </div>
+          </div>
+          <div class="pdp-accordion-item">
+            <button class="pdp-accordion-trigger" aria-expanded="false" aria-controls="faq-2">
+              Can I use only one earbud at a time?
+              <svg class="pdp-accordion-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="pdp-accordion-body" id="faq-2" style="max-height: 0; overflow: hidden;">
+              <p>Yes. Each earbud can operate independently. When using a single earbud, the other remains in the case and charges. Audio automatically plays in mono mode when only one earbud is detected.</p>
+            </div>
+          </div>
+          <div class="pdp-accordion-item">
+            <button class="pdp-accordion-trigger" aria-expanded="false" aria-controls="faq-3">
+              How do I switch between connected devices?
+              <svg class="pdp-accordion-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="pdp-accordion-body" id="faq-3" style="max-height: 0; overflow: hidden;">
+              <p>The PulsePods Pro support Multipoint Connection — they can stay paired to two Bluetooth devices simultaneously. Audio routing follows whichever device begins playback. You do not need to manually switch or re-pair between your paired devices.</p>
+            </div>
+          </div>
+          <div class="pdp-accordion-item">
+            <button class="pdp-accordion-trigger" aria-expanded="false" aria-controls="faq-4">
+              What is included in the box?
+              <svg class="pdp-accordion-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="pdp-accordion-body" id="faq-4" style="max-height: 0; overflow: hidden;">
+              <p>In the box: PulsePods Pro earbuds (x2), charging case, USB-C charging cable (0.5m), silicone ear tips (S, M, L), quick start guide, and warranty card.</p>
+            </div>
+          </div>
+          <div class="pdp-accordion-item">
+            <button class="pdp-accordion-trigger" aria-expanded="false" aria-controls="faq-5">
+              Does the charging case support wireless charging?
+              <svg class="pdp-accordion-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="pdp-accordion-body" id="faq-5" style="max-height: 0; overflow: hidden;">
+              <p>Yes. The PulsePods Pro case is Qi wireless charging compatible. Simply place the case on any Qi-certified pad to charge. USB-C wired charging is also supported for faster top-up speeds.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RELATED PRODUCTS -->
+    <section class="section" aria-labelledby="related-heading" style="border-top: 1px solid var(--color-border); padding-top: var(--space-48);">
+      <div class="section-header" style="margin-bottom: var(--space-32);">
+        <h2 id="related-heading" style="font-size: 28px;">You May Also Like</h2>
+      </div>
+      <div id="pdp-related-grid" class="grid grid-mobile-1 grid-tablet-2 grid-desktop-3">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- STICKY MOBILE ADD TO CART BAR (appears on scroll) -->
+  <div class="pdp-sticky-cta" id="pdp-sticky-cta" aria-label="Quick Add to Cart" role="region">
+    <div class="pdp-sticky-inner">
+      <div class="pdp-sticky-info">
+        <span class="pdp-sticky-name">PulsePods Pro</span>
+        <span class="pdp-sticky-price">$129</span>
+      </div>
+      <button class="btn btn-primary pdp-add-to-cart" id="pdp-sticky-add-btn" data-product-id="pulsepods-pro" style="height: 48px; font-size: 15px;">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+
+  <!-- ZOOM LIGHTBOX -->
+  <div id="pdp-zoom-overlay" class="modal-overlay" aria-hidden="true" role="dialog" aria-label="Zoomed product view">
+    <div class="pdp-zoom-modal" style="background: white; border-radius: var(--radius-lg); padding: var(--space-32); position: relative; max-width: 520px; width: 90vw;">
+      <button id="pdp-zoom-close" class="btn-icon modal-close" style="position: absolute; top: var(--space-16); right: var(--space-16);" aria-label="Close zoom view">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div id="pdp-zoom-illustration" style="display: flex; align-items: center; justify-content: center; min-height: 380px;">
+        <!-- Dynamically filled -->
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK VIEW MODAL (shared) -->
+  <div id="quickview-modal" class="modal-overlay" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+      <button id="modal-close-btn" class="btn-icon modal-close" aria-label="Close modal window">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div id="modal-dynamic-content"></div>
+    </div>
+  </div>
+
+  <!-- COMPARE DRAWER (shared) -->
+  <div id="compare-drawer" class="compare-drawer" aria-label="Product comparison panel" role="region">
+    <div class="container compare-drawer-container">
+      <div class="compare-drawer-header">
+        <span class="compare-drawer-title">Comparing <strong id="compare-count">0</strong> of 3 products</span>
+      </div>
+      <div class="compare-drawer-products" id="compare-drawer-products"></div>
+      <div class="compare-drawer-actions">
+        <button id="clear-compare-btn" class="btn btn-secondary btn-sm" style="min-width: unset; height: 44px;">Clear</button>
+        <button id="view-compare-btn" class="btn btn-primary btn-sm" style="min-width: unset; height: 44px;">Compare Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer-wrapper">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">PulseNest<span class="logo-dot"></span></a>
+          <p>High-fidelity audio and charging accessories engineered for everyday performance.</p>
+        </div>
+        <div class="footer-links-col">
+          <span class="footer-links-title">Shop</span>
+          <ul class="footer-links-list">
+            <li><a href="shop.html">Wireless Earbuds</a></li>
+            <li><a href="shop.html">Wireless Headphones</a></li>
+            <li><a href="shop.html">Mobile Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <span class="footer-links-title">Support</span>
+          <ul class="footer-links-list">
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ & Help Center</a></li>
+            <li><a href="#">Shipping Information</a></li>
+            <li><a href="#">Returns Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <span class="footer-links-title">Legal</span>
+          <ul class="footer-links-list">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 PulseNest Inc. All rights reserved.</p>
+        <div class="footer-payments">
+          <span class="payment-badge">Visa</span>
+          <span class="payment-badge">Mastercard</span>
+          <span class="payment-badge">Amex</span>
+          <span class="payment-badge">Apple Pay</span>
+          <span class="payment-badge">Google Pay</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
