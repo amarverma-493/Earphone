@@ -147,110 +147,243 @@
         </div>
       </div>
 
-      <!-- Hero Visual Showcase Layout -->
+      <!-- Hero Visual Showcase – Product Slider -->
       <div class="hero-showcase">
-        <!-- Flagship Product Feature Card (Stripped of competing actions/labels for visual focus and CTA dominance) -->
-        <div class="hero-flagship-card">
-          <div class="flagship-image-wrapper">
-            <div class="product-illustration" id="hero-flagship-illustration">
-              <!-- Inline Earbud Illustration with custom gradients & drop-shadows -->
-              <svg width="160" height="160" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PulsePods Pro flagship illustration">
-                <defs>
-                  <linearGradient id="flagship-case-grad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#FFFFFF"/>
-                    <stop offset="100%" stop-color="#E2E8F0"/>
-                  </linearGradient>
-                  <linearGradient id="flagship-bud-grad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#4B5563"/>
-                    <stop offset="100%" stop-color="#111827"/>
-                  </linearGradient>
-                  <filter id="svg-soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#0F172A" flood-opacity="0.12"/>
-                  </filter>
-                </defs>
-                <rect x="25" y="35" width="70" height="60" rx="20" fill="url(#flagship-case-grad)" stroke="#CBD5E1" stroke-width="2.5" filter="url(#svg-soft-shadow)" />
-                <rect x="35" y="45" width="50" height="2.5" fill="#CBD5E1" />
-                <circle cx="60" cy="70" r="4.5" fill="#10B981" /> <!-- Emerald green power LED indicator -->
-                <path d="M45 20 C45 10, 55 10, 55 20 L55 35 L45 35 Z" fill="url(#flagship-bud-grad)" filter="url(#svg-soft-shadow)" />
-                <path d="M75 20 C75 10, 65 10, 65 20 L65 35 L75 35 Z" fill="url(#flagship-bud-grad)" filter="url(#svg-soft-shadow)" />
-              </svg>
+        <div class="hero-slider" id="hero-slider" role="region" aria-label="Featured Products" aria-roledescription="carousel">
+
+          <!-- Slide Track -->
+          <div class="hero-slider-track" id="hero-slider-track">
+
+            <!-- Slide 1: PulsePods Pro -->
+            <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
+              <a href="product.html?id=pulsepods-pro" class="hero-slide-link" tabindex="0" aria-label="View PulsePods Pro details">
+                <div class="hero-flagship-card">
+                  <div class="flagship-image-wrapper">
+                    <div class="product-illustration" id="hero-flagship-illustration">
+                      <svg width="160" height="160" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PulsePods Pro">
+                        <defs>
+                          <linearGradient id="flagship-case-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#E2E8F0"/></linearGradient>
+                          <linearGradient id="flagship-bud-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4B5563"/><stop offset="100%" stop-color="#111827"/></linearGradient>
+                          <filter id="svg-soft-shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#0F172A" flood-opacity="0.12"/></filter>
+                        </defs>
+                        <rect x="25" y="35" width="70" height="60" rx="20" fill="url(#flagship-case-grad)" stroke="#CBD5E1" stroke-width="2.5" filter="url(#svg-soft-shadow)" />
+                        <rect x="35" y="45" width="50" height="2.5" fill="#CBD5E1" />
+                        <circle cx="60" cy="70" r="4.5" fill="#10B981" />
+                        <path d="M45 20 C45 10, 55 10, 55 20 L55 35 L45 35 Z" fill="url(#flagship-bud-grad)" filter="url(#svg-soft-shadow)" />
+                        <path d="M75 20 C75 10, 65 10, 65 20 L65 35 L75 35 Z" fill="url(#flagship-bud-grad)" filter="url(#svg-soft-shadow)" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="flagship-info">
+                    <div class="flagship-meta">
+                      <span class="card-category">Wireless Earbuds</span>
+                      <span class="card-price" style="font-size:24px;">$129</span>
+                    </div>
+                    <h3 style="font-size:22px;margin-bottom:var(--space-4);">PulsePods Pro</h3>
+                    <div class="flagship-spec-chips">
+                      <span class="spec-chip">Active Noise Cancellation</span>
+                      <span class="spec-chip">Wireless Charging</span>
+                      <span class="spec-chip">30-Hour Battery</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
             </div>
+
+            <!-- Slide 2: PulsePods Lite -->
+            <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
+              <a href="product.html?id=pulsepods-lite" class="hero-slide-link" tabindex="-1" aria-label="View PulsePods Lite details">
+                <div class="hero-flagship-card">
+                  <div class="flagship-image-wrapper">
+                    <div class="product-illustration">
+                      <svg width="160" height="160" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PulsePods Lite">
+                        <defs>
+                          <linearGradient id="lite-case-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#F1F5F9"/></linearGradient>
+                        </defs>
+                        <rect x="25" y="35" width="70" height="60" rx="20" fill="url(#lite-case-grad)" stroke="#E2E8F0" stroke-width="2" />
+                        <circle cx="60" cy="70" r="3" fill="#111827" />
+                        <path d="M48 22 C48 14, 56 14, 56 22 L56 35 L48 35 Z" fill="#111827" />
+                        <path d="M72 22 C72 14, 64 14, 64 22 L64 35 L72 35 Z" fill="#111827" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="flagship-info">
+                    <div class="flagship-meta">
+                      <span class="card-category">Wireless Earbuds</span>
+                      <span class="card-price" style="font-size:24px;">$79</span>
+                    </div>
+                    <h3 style="font-size:22px;margin-bottom:var(--space-4);">PulsePods Lite</h3>
+                    <div class="flagship-spec-chips">
+                      <span class="spec-chip">Lightweight Design</span>
+                      <span class="spec-chip">20-Hour Battery</span>
+                      <span class="spec-chip">IPX4 Water Resistant</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Slide 3: PulseMax Headphones -->
+            <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
+              <a href="product.html?id=pulsemax" class="hero-slide-link" tabindex="-1" aria-label="View PulseMax Headphones details">
+                <div class="hero-flagship-card">
+                  <div class="flagship-image-wrapper">
+                    <div class="product-illustration">
+                      <svg width="160" height="160" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PulseMax Headphones">
+                        <defs>
+                          <linearGradient id="headband-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#64748B"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+                        </defs>
+                        <path d="M25 65 C25 25, 95 25, 95 65" stroke="url(#headband-grad)" stroke-width="6" stroke-linecap="round" fill="none"/>
+                        <rect x="15" y="55" width="16" height="30" rx="8" fill="#1E293B" />
+                        <rect x="89" y="55" width="16" height="30" rx="8" fill="#1E293B" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="flagship-info">
+                    <div class="flagship-meta">
+                      <span class="card-category">Headphones</span>
+                      <span class="card-price" style="font-size:24px;">$199</span>
+                    </div>
+                    <h3 style="font-size:22px;margin-bottom:var(--space-4);">PulseMax Headphones</h3>
+                    <div class="flagship-spec-chips">
+                      <span class="spec-chip">Over-Ear Design</span>
+                      <span class="spec-chip">40-Hour Playtime</span>
+                      <span class="spec-chip">Hi-Res Audio</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Slide 4: MagCharge Pad -->
+            <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
+              <a href="product.html?id=magcharge" class="hero-slide-link" tabindex="-1" aria-label="View MagCharge Pad details">
+                <div class="hero-flagship-card">
+                  <div class="flagship-image-wrapper">
+                    <div class="product-illustration">
+                      <svg width="160" height="160" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MagCharge Pad">
+                        <defs>
+                          <linearGradient id="pad-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F8FAFC"/><stop offset="100%" stop-color="#CBD5E1"/></linearGradient>
+                        </defs>
+                        <circle cx="60" cy="60" r="40" fill="url(#pad-grad)" stroke="#E2E8F0" stroke-width="2" />
+                        <circle cx="60" cy="60" r="24" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-dasharray="4 3" />
+                        <path d="M60 48 L52 62 L59 62 L57 72 L68 56 L60 56 Z" fill="#2563EB" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="flagship-info">
+                    <div class="flagship-meta">
+                      <span class="card-category">Wireless Charging</span>
+                      <span class="card-price" style="font-size:24px;">$49</span>
+                    </div>
+                    <h3 style="font-size:22px;margin-bottom:var(--space-4);">MagCharge Pad</h3>
+                    <div class="flagship-spec-chips">
+                      <span class="spec-chip">15W Fast Charge</span>
+                      <span class="spec-chip">Qi2 Compatible</span>
+                      <span class="spec-chip">Universal Fit</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+          </div><!-- /.hero-slider-track -->
+
+          <!-- Prev / Next Arrows -->
+          <button class="hero-slider-arrow hero-slider-prev" id="hero-slider-prev" aria-label="Previous product">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button class="hero-slider-arrow hero-slider-next" id="hero-slider-next" aria-label="Next product">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+
+          <!-- Dot Indicators -->
+          <div class="hero-slider-dots" id="hero-slider-dots" role="tablist" aria-label="Slide indicators">
+            <button class="hero-dot active" role="tab" aria-selected="true"  aria-label="Go to slide 1" data-slide="0"></button>
+            <button class="hero-dot"        role="tab" aria-selected="false" aria-label="Go to slide 2" data-slide="1"></button>
+            <button class="hero-dot"        role="tab" aria-selected="false" aria-label="Go to slide 3" data-slide="2"></button>
+            <button class="hero-dot"        role="tab" aria-selected="false" aria-label="Go to slide 4" data-slide="3"></button>
           </div>
 
-          <div class="flagship-info">
-            <div class="flagship-meta">
-              <span class="card-category">Wireless Earbuds</span>
-              <span class="card-price" style="font-size: 24px;">$129</span>
-            </div>
-            <h3 style="font-size: 22px; margin-bottom: var(--space-4);">PulsePods Pro</h3>
-            <div class="flagship-spec-chips">
-              <span class="spec-chip">Active Noise Cancellation</span>
-              <span class="spec-chip">Wireless Charging</span>
-              <span class="spec-chip">30-Hour Battery</span>
-            </div>
-          </div>
-        </div>
+        </div><!-- /.hero-slider -->
+      </div><!-- /.hero-showcase -->
 
-        <!-- Three Supporting Hero Products Grid (Simplified as clean static category visuals to prevent CTA competition and visual noise) -->
-        <div class="hero-supporting-grid">
-          <div class="supporting-card" data-id="pulsepods-lite">
-            <div class="supporting-img-wrapper">
-              <svg width="60" height="60" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PulsePods Lite illustration">
-                <defs>
-                  <linearGradient id="lite-case-grad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#FFFFFF"/>
-                    <stop offset="100%" stop-color="#F1F5F9"/>
-                  </linearGradient>
-                </defs>
-                <rect x="25" y="35" width="70" height="60" rx="20" fill="url(#lite-case-grad)" stroke="#E2E8F0" stroke-width="2" />
-                <circle cx="60" cy="70" r="3" fill="#111827" />
-                <path d="M48 22 C48 14, 56 14, 56 22 L56 35 L48 35 Z" fill="#111827" />
-                <path d="M72 22 C72 14, 64 14, 64 22 L64 35 L72 35 Z" fill="#111827" />
-              </svg>
-            </div>
-            <span class="supporting-title">PulsePods Lite</span>
-          </div>
-
-          <div class="supporting-card" data-id="pulsemax">
-            <div class="supporting-img-wrapper">
-              <svg width="60" height="60" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PulseMax Headphones illustration">
-                <defs>
-                  <linearGradient id="headband-grad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#64748B"/>
-                    <stop offset="100%" stop-color="#334155"/>
-                  </linearGradient>
-                </defs>
-                <path d="M25 65 C25 25, 95 25, 95 65" stroke="url(#headband-grad)" stroke-width="6" stroke-linecap="round" fill="none"/>
-                <rect x="15" y="55" width="16" height="30" rx="8" fill="#1E293B" />
-                <rect x="89" y="55" width="16" height="30" rx="8" fill="#1E293B" />
-              </svg>
-            </div>
-            <span class="supporting-title">PulseMax Headphones</span>
-          </div>
-
-          <div class="supporting-card" data-id="magcharge">
-            <div class="supporting-img-wrapper">
-              <svg width="60" height="60" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MagCharge Pad illustration">
-                <defs>
-                  <linearGradient id="pad-grad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#F8FAFC"/>
-                    <stop offset="100%" stop-color="#CBD5E1"/>
-                  </linearGradient>
-                </defs>
-                <circle cx="60" cy="60" r="40" fill="url(#pad-grad)" stroke="#E2E8F0" stroke-width="2" />
-                <circle cx="60" cy="60" r="24" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-dasharray="4 3" />
-                <path d="M60 48 L52 62 L59 62 L57 72 L68 56 L60 56 Z" fill="#2563EB" />
-              </svg>
-            </div>
-            <span class="supporting-title">MagCharge Pad</span>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
+  <!-- EXCLUSIVE WELCOME OFFERS SECTION -->
+  <section class="promo-offers-section" id="welcome-offers" aria-labelledby="promo-offers-heading">
+    <div class="promo-offers-inner">
+
+      <!-- Background decorative blobs -->
+      <span class="promo-blob promo-blob-1" aria-hidden="true"></span>
+      <span class="promo-blob promo-blob-2" aria-hidden="true"></span>
+
+      <div class="container promo-offers-centered">
+
+        <!-- Label pill -->
+        <span class="promo-label-pill">Limited Time</span>
+
+        <h2 class="promo-headline" id="promo-offers-heading">
+          Exclusive Welcome Offers
+        </h2>
+        <p class="promo-subheading">
+          Join today and unlock exclusive benefits on your very first purchase.
+        </p>
+
+        <!-- Four offer cards -->
+        <div class="promo-cards-grid" role="list">
+
+          <div class="promo-card" role="listitem">
+            <span class="promo-card-icon" aria-hidden="true">🎁</span>
+            <div class="promo-card-body">
+              <strong class="promo-card-title">Welcome Discount</strong>
+              <p class="promo-card-desc">Get <span class="promo-highlight">10% OFF</span> your first order.</p>
+            </div>
+          </div>
+
+          <div class="promo-card" role="listitem">
+            <span class="promo-card-icon" aria-hidden="true">🚚</span>
+            <div class="promo-card-body">
+              <strong class="promo-card-title">Free Shipping</strong>
+              <p class="promo-card-desc">Free shipping on your <span class="promo-highlight">first purchase</span>.</p>
+            </div>
+          </div>
+
+          <div class="promo-card" role="listitem">
+            <span class="promo-card-icon" aria-hidden="true">⭐</span>
+            <div class="promo-card-body">
+              <strong class="promo-card-title">Reward Points</strong>
+              <p class="promo-card-desc">Earn <span class="promo-highlight">bonus points</span> when you create an account.</p>
+            </div>
+          </div>
+
+          <div class="promo-card" role="listitem">
+            <span class="promo-card-icon" aria-hidden="true">🔄</span>
+            <div class="promo-card-body">
+              <strong class="promo-card-title">Easy Returns</strong>
+              <p class="promo-card-desc">Hassle-free returns within <span class="promo-highlight">30 days</span>.</p>
+            </div>
+          </div>
+
+        </div><!-- /.promo-cards-grid -->
+
+        <!-- CTA -->
+        <div class="promo-cta-row text-center">
+          <a href="shop.html" class="btn promo-cta-btn" aria-label="Claim your welcome offer and shop now">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>
+            Claim Your Welcome Offer
+          </a>
+          <p class="promo-cta-note">No credit card required &nbsp;·&nbsp; Cancel anytime</p>
+        </div>
+
+      </div><!-- /.container -->
+    </div><!-- /.promo-offers-inner -->
+  </section><!-- /.promo-offers-section -->
+
   <!-- POPULAR CATEGORIES SECTION -->
   <section class="section" id="popular-categories" aria-labelledby="categories-heading">
+
     <div class="container">
       <div class="section-header">
         <h2 id="categories-heading">Popular Categories</h2>
@@ -415,8 +548,310 @@
     </div>
   </section>
 
+  <!-- =====================================================
+       CUSTOMER REVIEWS SECTION
+       ===================================================== -->
+  <section class="section reviews-section" id="customer-reviews" aria-labelledby="reviews-heading">
+    <div class="container">
+
+      <div class="section-header" data-animate>
+        <h2 id="reviews-heading">What Our Customers Say</h2>
+        <p>Trusted by thousands of happy customers worldwide.</p>
+      </div>
+
+      <!-- Star rating summary bar -->
+      <div class="reviews-summary" data-animate>
+        <div class="reviews-summary-score">
+          <span class="reviews-big-num">4.9</span>
+          <div class="reviews-summary-right">
+            <div class="star-row" aria-label="4.9 out of 5 stars">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <span class="reviews-count">Based on 2,400+ verified reviews</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reviews grid / carousel -->
+      <div class="reviews-track-wrapper" role="list" aria-label="Customer reviews">
+
+        <!-- Card 1 -->
+        <article class="review-card" role="listitem" data-animate>
+          <div class="review-card-header">
+            <div class="review-avatar" aria-hidden="true" style="background: linear-gradient(135deg,#4F46E5,#7C3AED);">
+              <span>SA</span>
+            </div>
+            <div class="review-meta">
+              <strong class="review-name">Sarah Anderson</strong>
+              <span class="review-date">July 12, 2026</span>
+            </div>
+            <span class="review-verified-badge" aria-label="Verified Purchase">✓ Verified</span>
+          </div>
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3 class="review-title">Excellent quality and fast delivery!</h3>
+          <p class="review-body">These earbuds arrived two days early and the sound quality blew me away. The ANC is superb — completely blocks out office noise. Worth every penny.</p>
+          <span class="review-product">Purchased: <strong>PulsePods Pro</strong></span>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="review-card" role="listitem" data-animate>
+          <div class="review-card-header">
+            <div class="review-avatar" aria-hidden="true" style="background: linear-gradient(135deg,#059669,#10B981);">
+              <span>MK</span>
+            </div>
+            <div class="review-meta">
+              <strong class="review-name">Marcus Kim</strong>
+              <span class="review-date">July 8, 2026</span>
+            </div>
+            <span class="review-verified-badge" aria-label="Verified Purchase">✓ Verified</span>
+          </div>
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3 class="review-title">The product exceeded my expectations.</h3>
+          <p class="review-body">I was skeptical at first but these headphones are genuinely incredible. 40-hour battery life is real — tested it myself over three days of commuting.</p>
+          <span class="review-product">Purchased: <strong>PulseMax Headphones</strong></span>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="review-card" role="listitem" data-animate>
+          <div class="review-card-header">
+            <div class="review-avatar" aria-hidden="true" style="background: linear-gradient(135deg,#DC2626,#F97316);">
+              <span>PL</span>
+            </div>
+            <div class="review-meta">
+              <strong class="review-name">Priya Lal</strong>
+              <span class="review-date">June 30, 2026</span>
+            </div>
+            <span class="review-verified-badge" aria-label="Verified Purchase">✓ Verified</span>
+          </div>
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3 class="review-title">Great value for money.</h3>
+          <p class="review-body">The MagCharge Pad is compact and looks premium on my desk. Charges my phone noticeably faster than my old pad. The LED indicator is a nice touch.</p>
+          <span class="review-product">Purchased: <strong>MagCharge Pad</strong></span>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="review-card" role="listitem" data-animate>
+          <div class="review-card-header">
+            <div class="review-avatar" aria-hidden="true" style="background: linear-gradient(135deg,#0EA5E9,#2563EB);">
+              <span>JT</span>
+            </div>
+            <div class="review-meta">
+              <strong class="review-name">James Torres</strong>
+              <span class="review-date">June 22, 2026</span>
+            </div>
+            <span class="review-verified-badge" aria-label="Verified Purchase">✓ Verified</span>
+          </div>
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3 class="review-title">Highly recommended for first-time buyers.</h3>
+          <p class="review-body">My first purchase from PulseNest and it will not be my last. The packaging is premium, the product is exactly as described, and shipping was faster than expected.</p>
+          <span class="review-product">Purchased: <strong>PulsePods Lite</strong></span>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="review-card" role="listitem" data-animate>
+          <div class="review-card-header">
+            <div class="review-avatar" aria-hidden="true" style="background: linear-gradient(135deg,#D97706,#92400E);">
+              <span>NO</span>
+            </div>
+            <div class="review-meta">
+              <strong class="review-name">Nina Okafor</strong>
+              <span class="review-date">June 15, 2026</span>
+            </div>
+            <span class="review-verified-badge" aria-label="Verified Purchase">✓ Verified</span>
+          </div>
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3 class="review-title">Amazing customer support.</h3>
+          <p class="review-body">I had a question about my order and the support team responded within 20 minutes. They resolved everything instantly. The product itself is fantastic too.</p>
+          <span class="review-product">Purchased: <strong>PowerVault 20K</strong></span>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="review-card" role="listitem" data-animate>
+          <div class="review-card-header">
+            <div class="review-avatar" aria-hidden="true" style="background: linear-gradient(135deg,#7C3AED,#C026D3);">
+              <span>RB</span>
+            </div>
+            <div class="review-meta">
+              <strong class="review-name">Ryan Bennett</strong>
+              <span class="review-date">June 3, 2026</span>
+            </div>
+            <span class="review-verified-badge" aria-label="Verified Purchase">✓ Verified</span>
+          </div>
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3 class="review-title">Will definitely purchase again.</h3>
+          <p class="review-body">Third purchase from PulseNest and still going strong. The FlexCharge cable is built differently — no fraying, solid connectors, and charges at full speed every time.</p>
+          <span class="review-product">Purchased: <strong>FlexCharge Cable</strong></span>
+        </article>
+
+      </div><!-- /.reviews-track-wrapper -->
+
+      <!-- CTA -->
+      <div class="reviews-cta-row" data-animate>
+        <a href="#" class="btn btn-secondary" aria-label="View all customer reviews">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          View All Reviews
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       FAQ ACCORDION SECTION
+       ===================================================== -->
+  <section class="section section-bg faq-section" id="faq" aria-labelledby="faq-heading">
+    <div class="container faq-container">
+
+      <div class="section-header" data-animate>
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+        <p>Everything you need to know before placing your order.</p>
+      </div>
+
+      <div class="faq-list" id="faq-accordion" data-animate>
+
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button class="faq-trigger" id="faq-btn-1" aria-expanded="true" aria-controls="faq-panel-1">
+            <span class="faq-question">How long does shipping take?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg class="faq-icon-plus"  width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <svg class="faq-icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1">
+            <div class="faq-panel-inner">
+              <p>Standard shipping takes <strong>3–7 business days</strong>. Express shipping (1–3 business days) and Overnight delivery are also available at checkout. Orders placed before 2 PM EST are dispatched the same day.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-trigger" id="faq-btn-2" aria-expanded="false" aria-controls="faq-panel-2">
+            <span class="faq-question">Do you offer free shipping?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg class="faq-icon-plus"  width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <svg class="faq-icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2">
+            <div class="faq-panel-inner">
+              <p>Yes! We offer <strong>free standard shipping on all orders over $75</strong>. New customers also receive free shipping on their very first purchase regardless of order value as part of our welcome offer.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-trigger" id="faq-btn-3" aria-expanded="false" aria-controls="faq-panel-3">
+            <span class="faq-question">What is your return policy?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg class="faq-icon-plus"  width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <svg class="faq-icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel" id="faq-panel-3" role="region" aria-labelledby="faq-btn-3">
+            <div class="faq-panel-inner">
+              <p>We offer <strong>hassle-free returns within 30 days</strong> of delivery. Items must be in their original condition and packaging. Simply initiate a return from your account dashboard and we'll provide a pre-paid return label at no cost.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-trigger" id="faq-btn-4" aria-expanded="false" aria-controls="faq-panel-4">
+            <span class="faq-question">How can I track my order?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg class="faq-icon-plus"  width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <svg class="faq-icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel" id="faq-panel-4" role="region" aria-labelledby="faq-btn-4">
+            <div class="faq-panel-inner">
+              <p>Once your order ships, you'll receive a confirmation email with a <strong>real-time tracking link</strong>. You can also log into your PulseNest account and view full order tracking history from the "My Orders" section.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-trigger" id="faq-btn-5" aria-expanded="false" aria-controls="faq-panel-5">
+            <span class="faq-question">Which payment methods are accepted?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg class="faq-icon-plus"  width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <svg class="faq-icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel" id="faq-panel-5" role="region" aria-labelledby="faq-btn-5">
+            <div class="faq-panel-inner">
+              <p>We accept all major credit and debit cards (Visa, Mastercard, Amex), <strong>PayPal, Apple Pay, Google Pay</strong>, and bank transfers. All transactions are secured with SSL encryption and PCI-DSS compliance.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <button class="faq-trigger" id="faq-btn-6" aria-expanded="false" aria-controls="faq-panel-6">
+            <span class="faq-question">How do I contact customer support?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg class="faq-icon-plus"  width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <svg class="faq-icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel" id="faq-panel-6" role="region" aria-labelledby="faq-btn-6">
+            <div class="faq-panel-inner">
+              <p>Our support team is available <strong>Monday–Friday, 9 AM–6 PM EST</strong>. You can reach us via live chat (bottom-right icon), email at <a href="mailto:support@pulsenest.com" style="color:var(--color-primary);font-weight:600;">support@pulsenest.com</a>, or by calling 1-800-PULSE-01. Average response time is under 2 hours.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.faq-list -->
+    </div>
+  </section>
+
   <!-- PERSISTENT FOOTER -->
   <footer class="footer-wrapper">
+
     <div class="container">
       <div class="footer-grid">
         <!-- Column 1: Brand -->

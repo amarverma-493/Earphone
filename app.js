@@ -723,6 +723,142 @@ function renderFeaturedGrid() {
   grid.innerHTML = catalog.map(p => renderProductCard(p)).join("");
 }
 
+// --- HERO PRODUCT SLIDER ---
+function initHeroSlider() {
+  const slider  = document.getElementById("hero-slider");
+  if (!slider) return; // only runs on index.html
+
+  const track   = document.getElementById("hero-slider-track");
+  const prevBtn = document.getElementById("hero-slider-prev");
+  const nextBtn = document.getElementById("hero-slider-next");
+  const dotsEl  = document.getElementById("hero-slider-dots");
+  const slides  = Array.from(track.querySelectorAll(".hero-slide"));
+  const dots    = Array.from(dotsEl.querySelectorAll(".hero-dot"));
+  const TOTAL   = slides.length;
+  const DELAY   = 4000;  // autoplay interval ms
+
+  let current    = 0;
+  let autoTimer  = null;
+  let isDragging = false;
+  let dragStartX = 0;
+  let dragDeltaX = 0;
+
+  // ── Core go-to function ──────────────────────────────────────────
+  function goTo(index, wrap = true) {
+    if (wrap) {
+      index = ((index % TOTAL) + TOTAL) % TOTAL;
+    } else {
+      if (index < 0 || index >= TOTAL) return;
+    }
+    current = index;
+
+    // Slide the track
+    track.style.transform = `translateX(-${current * 100}%)`;
+
+    // Sync dots
+    dots.forEach((d, i) => {
+      const isActive = i === current;
+      d.classList.toggle("active", isActive);
+      d.setAttribute("aria-selected", String(isActive));
+    });
+
+    // Update tabindex on slide links (only active slide is tabbable)
+    slides.forEach((slide, i) => {
+      const link = slide.querySelector(".hero-slide-link");
+      if (link) link.setAttribute("tabindex", i === current ? "0" : "-1");
+    });
+
+    // ARIA live announcement
+    slider.setAttribute("aria-label", `Featured Products – slide ${current + 1} of ${TOTAL}`);
+  }
+
+  // ── Autoplay ─────────────────────────────────────────────────────
+  function startAutoplay() {
+    stopAutoplay();
+    autoTimer = setInterval(() => goTo(current + 1), DELAY);
+  }
+  function stopAutoplay() {
+    if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+  }
+
+  // Pause on hover / resume on leave
+  slider.addEventListener("mouseenter", stopAutoplay);
+  slider.addEventListener("mouseleave", startAutoplay);
+  // Pause while focused inside for keyboard users
+  slider.addEventListener("focusin",  stopAutoplay);
+  slider.addEventListener("focusout", (e) => {
+    if (!slider.contains(e.relatedTarget)) startAutoplay();
+  });
+
+  // ── Arrow buttons ────────────────────────────────────────────────
+  prevBtn.addEventListener("click", () => { goTo(current - 1); startAutoplay(); });
+  nextBtn.addEventListener("click", () => { goTo(current + 1); startAutoplay(); });
+
+  // ── Dot clicks ───────────────────────────────────────────────────
+  dotsEl.addEventListener("click", (e) => {
+    const dot = e.target.closest(".hero-dot");
+    if (!dot) return;
+    goTo(parseInt(dot.dataset.slide, 10));
+    startAutoplay();
+  });
+
+  // ── Keyboard navigation ──────────────────────────────────────────
+  slider.addEventListener("keydown", (e) => {
+    switch (e.key) {
+      case "ArrowLeft":  e.preventDefault(); goTo(current - 1); startAutoplay(); break;
+      case "ArrowRight": e.preventDefault(); goTo(current + 1); startAutoplay(); break;
+      case "Home":       e.preventDefault(); goTo(0);           startAutoplay(); break;
+      case "End":        e.preventDefault(); goTo(TOTAL - 1);   startAutoplay(); break;
+    }
+  });
+
+  // ── Touch / Mouse swipe drag ─────────────────────────────────────
+  function onDragStart(clientX) {
+    isDragging = true;
+    dragStartX = clientX;
+    dragDeltaX = 0;
+    track.style.transition = "none"; // disable CSS transition while dragging
+    stopAutoplay();
+  }
+  function onDragMove(clientX) {
+    if (!isDragging) return;
+    dragDeltaX = clientX - dragStartX;
+    // Follow finger/mouse in real time
+    const baseOffset = current * 100; // in percent of track width
+    const pixelWidth = slider.offsetWidth;
+    const percentDelta = (dragDeltaX / pixelWidth) * 100;
+    track.style.transform = `translateX(calc(-${baseOffset}% + ${percentDelta}px))`;
+  }
+  function onDragEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+    track.style.transition = ""; // restore CSS transition
+    const threshold = slider.offsetWidth * 0.2; // 20% of width to commit
+    if (dragDeltaX < -threshold) {
+      goTo(current + 1);
+    } else if (dragDeltaX > threshold) {
+      goTo(current - 1);
+    } else {
+      goTo(current); // snap back
+    }
+    startAutoplay();
+  }
+
+  // Touch events
+  slider.addEventListener("touchstart", (e) => onDragStart(e.touches[0].clientX), { passive: true });
+  slider.addEventListener("touchmove",  (e) => onDragMove(e.touches[0].clientX),  { passive: true });
+  slider.addEventListener("touchend",   onDragEnd);
+
+  // Mouse drag events
+  slider.addEventListener("mousedown",  (e) => { e.preventDefault(); onDragStart(e.clientX); });
+  window.addEventListener("mousemove",  (e) => { if (isDragging) onDragMove(e.clientX); });
+  window.addEventListener("mouseup",    () => { if (isDragging) onDragEnd(); });
+
+  // ── Initialise ───────────────────────────────────────────────────
+  goTo(0);        // set initial state
+  startAutoplay();
+}
+
 // --- PRODUCT DETAIL PAGE CONTROLLER ---
 function initPDP() {
   if (!document.getElementById("pdp-main")) return; // only runs on product.html
@@ -1757,13 +1893,97 @@ function initConfirmation() {
   }
 }
 
+// --- FAQ ACCORDION CONTROLLER ---
+function initFaqAccordion() {
+  const accordion = document.getElementById("faq-accordion");
+  if (!accordion) return; // only runs where the FAQ section exists
+
+  const triggers = Array.from(accordion.querySelectorAll(".faq-trigger"));
+
+  function openItem(trigger) {
+    const panelId = trigger.getAttribute("aria-controls");
+    const panel   = document.getElementById(panelId);
+    if (!panel) return;
+    trigger.setAttribute("aria-expanded", "true");
+    // Use scrollHeight so the animation works for any content length
+    panel.style.maxHeight = panel.scrollHeight + "px";
+  }
+
+  function closeItem(trigger) {
+    const panelId = trigger.getAttribute("aria-controls");
+    const panel   = document.getElementById(panelId);
+    if (!panel) return;
+    trigger.setAttribute("aria-expanded", "false");
+    panel.style.maxHeight = "0";
+  }
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const isExpanded = trigger.getAttribute("aria-expanded") === "true";
+      // Close ALL panels first (exclusive-open behaviour)
+      triggers.forEach(closeItem);
+      // If this one was closed, open it now
+      if (!isExpanded) openItem(trigger);
+    });
+
+    // Keyboard accessibility: Space and Enter are handled natively for buttons;
+    // Add Home/End navigation across the trigger list
+    trigger.addEventListener("keydown", (e) => {
+      const idx = triggers.indexOf(trigger);
+      if (e.key === "Home") { e.preventDefault(); triggers[0].focus(); }
+      if (e.key === "End")  { e.preventDefault(); triggers[triggers.length - 1].focus(); }
+      if (e.key === "ArrowDown") { e.preventDefault(); triggers[(idx + 1) % triggers.length].focus(); }
+      if (e.key === "ArrowUp")   { e.preventDefault(); triggers[(idx - 1 + triggers.length) % triggers.length].focus(); }
+    });
+  });
+
+  // Initialise: set correct maxHeight for the item that starts open (aria-expanded="true")
+  triggers.forEach((trigger) => {
+    if (trigger.getAttribute("aria-expanded") === "true") {
+      const panel = document.getElementById(trigger.getAttribute("aria-controls"));
+      if (panel) panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+
+// --- SCROLL-IN ANIMATION CONTROLLER ---
+function initScrollAnimations() {
+  // Nothing to do if IntersectionObserver isn't supported
+  if (!("IntersectionObserver" in window)) {
+    // Fallback: just show everything immediately
+    document.querySelectorAll("[data-animate]").forEach((el) => el.classList.add("in-view"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target); // animate once
+        }
+      });
+    },
+    {
+      threshold: 0.12,      // trigger when 12% of element is visible
+      rootMargin: "0px 0px -40px 0px", // slight offset from bottom
+    }
+  );
+
+  document.querySelectorAll("[data-animate]").forEach((el) => observer.observe(el));
+}
+
 // 7. Event Listeners & Delegations
 document.addEventListener("DOMContentLoaded", () => {
+
   // Update global cart count badges from persisted cart state
   updateGlobalCartBadges();
 
   // Render landing page featured products grid
   renderFeaturedGrid();
+
+  // Initialise Hero Slider
+  initHeroSlider();
 
   // Initialise PDP
   initPDP();
@@ -1776,6 +1996,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialise Confirmation
   initConfirmation();
+
+  // Initialise FAQ accordion (index.html only)
+  initFaqAccordion();
+
+  // Initialise scroll-in animations
+  initScrollAnimations();
 
 
   // Mobile navigation toggles
