@@ -106,6 +106,16 @@ const catalog = [
   }
 ];
 
+// Product image map — maps product IDs to their image paths
+const productImages = {
+  "pulsepods-pro":  "images/product-earbuds.png",
+  "pulsepods-lite": "images/product-earbuds.png",
+  "pulsemax":        "images/product-headphones.png",
+  "magcharge":       "images/product-headphones.png",
+  "powervault":      "images/product-gaming.png",
+  "flexcharge":      "images/product-sports.png",
+};
+
 // 2. Application State
 const state = {
   cart: (() => {
@@ -251,14 +261,37 @@ function closeQuickView() {
 // 5. SVG Render Engine for Vector Assets
 function getSvgMarkup(id, color, isLarge = false) {
   const size = isLarge ? "180" : "120";
+
+  // ── Real image path if available ─────────────────────────────────────────
+  if (productImages[id]) {
+    const imgSize = isLarge ? "180px" : "120px";
+    return `<img
+      src="${productImages[id]}"
+      alt="${id} product image"
+      class="card-image product-real-img"
+      width="${size}"
+      height="${size}"
+      loading="lazy"
+      decoding="async"
+      style="width:${imgSize};height:${imgSize};object-fit:contain;"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+    /><span style="display:none">${getSvgFallback(id, color, isLarge)}</span>`;
+  }
+
+  return getSvgFallback(id, color, isLarge);
+}
+
+// ── SVG fallback illustrations (original code, renamed) ───────────────────
+function getSvgFallback(id, color, isLarge = false) {
+  const size = isLarge ? "180" : "120";
   let gradStart = "#4B5563";
-  let gradEnd = "#111827";
-  
-  if (color === "white") { gradStart = "#FFFFFF"; gradEnd = "#E2E8F0"; }
-  if (color === "navy") { gradStart = "#3B82F6"; gradEnd = "#1E3A8A"; }
+  let gradEnd   = "#111827";
+
+  if (color === "white")  { gradStart = "#FFFFFF"; gradEnd = "#E2E8F0"; }
+  if (color === "navy")   { gradStart = "#3B82F6"; gradEnd = "#1E3A8A"; }
   if (color === "silver") { gradStart = "#F3F4F6"; gradEnd = "#9CA3AF"; }
-  if (color === "blue") { gradStart = "#60A5FA"; gradEnd = "#2563EB"; }
-  if (color === "gray") { gradStart = "#9CA3AF"; gradEnd = "#4B5563"; }
+  if (color === "blue")   { gradStart = "#60A5FA"; gradEnd = "#2563EB"; }
+  if (color === "gray")   { gradStart = "#9CA3AF"; gradEnd = "#4B5563"; }
 
   const gradientId = `grad-${id}-${color}-${isLarge ? 'lg' : 'sm'}`;
   const caseGradientId = `case-${gradientId}`;
@@ -385,6 +418,8 @@ function getSvgMarkup(id, color, isLarge = false) {
   }
   return "";
 }
+
+
 
 // Update card color variant
 function handleVariantChange(productId, color) {
@@ -1973,6 +2008,51 @@ function initScrollAnimations() {
   document.querySelectorAll("[data-animate]").forEach((el) => observer.observe(el));
 }
 
+// --- HERO PARALLAX CONTROLLER ---
+function initHeroParallax() {
+  // Respect reduced-motion preference
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const heroBgArt   = document.querySelector(".hero-bg-art");
+  const heroShapes  = document.querySelector(".hero-shapes");
+  const hero        = document.querySelector(".hero");
+
+  if (!heroBgArt || !hero) return; // only run on pages with a hero section
+
+  let ticking = false;
+  let lastY    = 0;
+
+  function applyParallax() {
+    const scrollY = window.pageYOffset;
+    const heroH   = hero.offsetHeight;
+
+    // Only run while hero is visible
+    if (scrollY > heroH) {
+      ticking = false;
+      return;
+    }
+
+    // Background art: moves at 25% of scroll speed (slower = more depth)
+    const bgOffset = scrollY * 0.25;
+    heroBgArt.style.transform = `translateY(${bgOffset}px)`;
+
+    // Floating shapes: move at 15% (slightly faster than bg, slower than content)
+    if (heroShapes) {
+      heroShapes.style.transform = `translateY(${scrollY * 0.15}px)`;
+    }
+
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", () => {
+    lastY = window.pageYOffset;
+    if (!ticking) {
+      requestAnimationFrame(applyParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
 // 7. Event Listeners & Delegations
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -2002,6 +2082,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialise scroll-in animations
   initScrollAnimations();
+
+  // Initialise hero parallax (only active on pages with .hero)
+  initHeroParallax();
 
 
   // Mobile navigation toggles

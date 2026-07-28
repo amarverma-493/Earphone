@@ -587,18 +587,160 @@ p {
 }
 
 /* --- HERO SECTION --- */
+/* ==========================================================================
+   HERO SECTION — Premium Full-Screen
+   ========================================================================== */
+
 .hero {
-  padding: var(--space-48) 0;
-  background-color: var(--color-bg-light);
+  /* Full-screen on desktop */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* Background: crisp white with a very subtle blue-tinted gradient */
+  background: linear-gradient(
+    135deg,
+    #FFFFFF 0%,
+    #F0F5FF 40%,
+    #EEF3FF 70%,
+    #F8FAFF 100%
+  );
+  position: relative;
+  overflow: hidden;
+
+  /* Padding: hero manages its own vertical rhythm */
+  padding: 0;
+}
+
+/* ── Layer 2: Background art image ───────────────────────────────────────── */
+.hero-bg-art {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  will-change: transform; /* parallax target */
+}
+
+.hero-bg-art-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  min-width: 900px;
+  height: auto;
+  object-fit: cover;
+  opacity: 0.07;
+  /* Soft blur to push it fully behind content */
+  filter: blur(0.5px) saturate(1.2);
+  user-select: none;
+}
+
+/* ── Layer 3: Floating SVG shapes ────────────────────────────────────────── */
+.hero-shapes {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
   overflow: hidden;
 }
 
+.hero-shape {
+  position: absolute;
+}
+
+/* Concentric rings — top right */
+.hero-shape-ring-lg {
+  width: 500px;
+  height: 500px;
+  top: -120px;
+  right: -100px;
+  animation: hero-float-slow 12s ease-in-out infinite;
+}
+
+/* Small ring — bottom left */
+.hero-shape-ring-sm {
+  width: 260px;
+  height: 260px;
+  bottom: -60px;
+  left: -40px;
+  animation: hero-float-slow 10s ease-in-out infinite reverse;
+}
+
+/* Dot cluster — top left */
+.hero-shape-dots {
+  width: 160px;
+  height: 110px;
+  top: 10%;
+  left: 5%;
+  animation: hero-float-fast 8s ease-in-out infinite;
+}
+
+/* Wave arcs — right center */
+.hero-shape-waves {
+  width: 200px;
+  height: 260px;
+  top: 30%;
+  right: 3%;
+  animation: hero-float-fast 9s ease-in-out infinite alternate;
+}
+
+/* Hexagon — bottom right of content area */
+.hero-shape-hex {
+  width: 100px;
+  height: 112px;
+  bottom: 18%;
+  left: 44%;
+  animation: hero-float-slow 11s ease-in-out infinite;
+  opacity: 0.85;
+}
+
+/* ── Glow orbs ───────────────────────────────────────────────────────────── */
+.hero-glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+/* Primary glow — right side behind product slider */
+.hero-glow-orb-1 {
+  width: 420px;
+  height: 420px;
+  top: 50%;
+  right: -80px;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, rgba(37,99,235,0.10) 0%, transparent 70%);
+  animation: hero-orb-pulse 6s ease-in-out infinite;
+}
+
+/* Secondary glow — left accent */
+.hero-glow-orb-2 {
+  width: 280px;
+  height: 280px;
+  bottom: -60px;
+  left: 20%;
+  background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+  animation: hero-orb-pulse 8s ease-in-out infinite alternate;
+}
+
+/* ── Layer 4: Hero content wrapper (above all decorations) ───────────────── */
 .hero-layout {
   display: flex;
   flex-direction: column;
   gap: var(--space-32);
+  position: relative;
+  z-index: 2;            /* sits above all bg layers (0, 1) */
+  /* Full-screen: vertically center */
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-64) var(--space-16) !important;
+  box-sizing: border-box;
 }
 
+/* ── Hero content column ─────────────────────────────────────────────────── */
 .hero-content {
   display: flex;
   flex-direction: column;
@@ -606,19 +748,27 @@ p {
   justify-content: center;
 }
 
+/* ── Hero badge / tag ────────────────────────────────────────────────────── */
 .hero-tag {
   display: inline-flex;
   align-items: center;
   align-self: flex-start;
   padding: var(--space-4) var(--space-12);
   border-radius: var(--radius-sm);
-  background: var(--color-primary-light);
+  /* Glassmorphism upgrade */
+  background: rgba(219, 234, 254, 0.70);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(147, 197, 253, 0.50);
   color: var(--color-primary);
   font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
 }
 
+/* ── CTA row ─────────────────────────────────────────────────────────────── */
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -626,6 +776,7 @@ p {
   margin-top: var(--space-8);
 }
 
+/* ── Proof / trust bar ───────────────────────────────────────────────────── */
 .hero-proof {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -659,10 +810,151 @@ p {
   color: var(--color-text-primary);
 }
 
+/* ── Showcase column ─────────────────────────────────────────────────────── */
 .hero-showcase {
   display: flex;
   flex-direction: column;
   gap: var(--space-24);
+}
+
+/* ── Entrance animations ─────────────────────────────────────────────────── */
+.hero-animate {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: hero-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-animate-delay {
+  animation-delay: 0.20s;
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Floating shape keyframes ────────────────────────────────────────────── */
+@keyframes hero-float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33%       { transform: translateY(-14px) rotate(1.5deg); }
+  66%       { transform: translateY(8px) rotate(-1deg); }
+}
+
+@keyframes hero-float-fast {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50%       { transform: translateY(-10px) translateX(6px); }
+}
+
+/* ── Glow orb pulse ──────────────────────────────────────────────────────── */
+@keyframes hero-orb-pulse {
+  0%, 100% { opacity: 0.7; transform: translateY(-50%) scale(1); }
+  50%       { opacity: 1;   transform: translateY(-50%) scale(1.12); }
+}
+
+/* orb-2 doesn't need the Y-translate */
+.hero-glow-orb-2 {
+  animation-name: hero-orb-pulse-2;
+}
+@keyframes hero-orb-pulse-2 {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.15); }
+}
+
+/* ── Reduced motion overrides ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-animate {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .hero-shape,
+  .hero-glow-orb {
+    animation: none;
+  }
+  .hero-bg-art-img {
+    filter: none;
+  }
+}
+
+/* ── Responsive: Tablet (≥768px) ─────────────────────────────────────────── */
+@media (min-width: 768px) {
+  .hero-layout {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-48);
+    padding: var(--space-48) 0;
+  }
+
+  .hero-content,
+  .hero-showcase {
+    flex: 1;
+    width: 50%;
+  }
+
+  .hero-showcase {
+    max-width: 500px;
+  }
+
+  .hero-proof {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Scale shapes proportionally on tablet */
+  .hero-shape-ring-lg { width: 380px; height: 380px; }
+  .hero-shape-ring-sm { width: 200px; height: 200px; }
+}
+
+/* ── Responsive: Mobile (≤640px) ─────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .hero {
+    min-height: 100svh; /* svh for mobile browser bars */
+    min-height: 100vh;  /* fallback */
+  }
+
+  .hero-layout {
+    min-height: 100svh;
+    min-height: 100vh;
+    padding: var(--space-32) 0 var(--space-48);
+  }
+
+  /* Simplify decoration on mobile */
+  .hero-shape-hex,
+  .hero-shape-waves,
+  .hero-shape-ring-sm {
+    display: none;
+  }
+
+  .hero-shape-ring-lg {
+    width: 280px;
+    height: 280px;
+    top: -60px;
+    right: -60px;
+    opacity: 0.7;
+  }
+
+  .hero-shape-dots {
+    width: 100px;
+    height: 70px;
+    top: 5%;
+    left: 2%;
+    opacity: 0.8;
+  }
+
+  .hero-glow-orb-1 {
+    width: 260px;
+    height: 260px;
+    top: 20%;
+    right: -60px;
+    transform: none;
+  }
+
+  .hero-glow-orb-2 { display: none; }
 }
 
 
@@ -1806,6 +2098,174 @@ p {
 
 
 /* ==========================================================================
+   IMAGE ENHANCEMENTS
+   ========================================================================== */
+
+/* ── Hero product images in slider ─────────────────────────────────────── */
+.hero-product-img {
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              filter 0.3s ease;
+  filter: drop-shadow(0 8px 24px rgba(37, 99, 235, 0.15));
+  display: block;
+  margin: 0 auto;
+}
+
+.hero-slide-link:hover .hero-product-img {
+  transform: scale(1.06) translateY(-4px);
+  filter: drop-shadow(0 16px 32px rgba(37, 99, 235, 0.22));
+}
+
+/* Expand flagship image wrapper to show the real image well */
+.flagship-image-wrapper {
+  height: 220px;
+  overflow: hidden;
+}
+
+/* ── Product card real images ───────────────────────────────────────────── */
+.product-real-img {
+  max-height: 140px;
+  max-width: 140px;
+  object-fit: contain;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              filter 0.3s ease;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.10));
+  display: block;
+  margin: 0 auto;
+}
+
+.product-card:hover .product-real-img {
+  transform: scale(1.08) translateY(-4px);
+  filter: drop-shadow(0 8px 20px rgba(37, 99, 235, 0.18));
+}
+
+/* Ensure card image wrapper is tall enough for real images */
+.card-image-wrapper {
+  height: 220px;
+}
+
+/* ── Hero z-index override (consolidated above) ──────────────────────────── */
+/* All hero layer rules now live in the HERO SECTION block above */
+
+/* ── FAQ two-column layout ───────────────────────────────────────────────── */
+.faq-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+  align-items: flex-start;
+}
+
+.faq-illustration-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.faq-illustration-img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.92;
+  filter: drop-shadow(0 8px 24px rgba(37, 99, 235, 0.12));
+  animation: faq-float 6s ease-in-out infinite;
+  display: block;
+  margin: 0 auto;
+}
+
+@keyframes faq-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+.faq-accordion-col {
+  flex: 1;
+  width: 100%;
+}
+
+/* Floating tip chips beside the FAQ illustration */
+.faq-tip-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  box-shadow: var(--shadow-md);
+  margin-top: var(--space-12);
+}
+
+.faq-tip-chip svg {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.faq-tip-1 { animation: faq-float 5s ease-in-out infinite; }
+.faq-tip-2 { animation: faq-float 7s ease-in-out infinite reverse; }
+
+/* Desktop two-column FAQ layout */
+@media (min-width: 768px) {
+  .faq-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-64);
+  }
+
+  .faq-illustration-col {
+    width: 280px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 100px;
+    align-items: flex-start;
+  }
+
+  .faq-illustration-img {
+    max-width: 240px;
+    margin: 0;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1024px) {
+  .faq-illustration-col {
+    width: 320px;
+  }
+
+  .faq-illustration-img {
+    max-width: 280px;
+  }
+}
+
+/* Mobile: hide illustration on very small screens to keep it clean */
+@media (max-width: 479px) {
+  .faq-illustration-col {
+    display: none;
+  }
+}
+
+/* ── Reduced motion ─────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-product-img,
+  .product-real-img,
+  .faq-illustration-img,
+  .faq-tip-1,
+  .faq-tip-2 {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* ==========================================================================
    CUSTOMER REVIEWS SECTION
    ========================================================================== */
 
@@ -2491,25 +2951,7 @@ p {
     grid-template-columns: repeat(4, 1fr);
   }
   
-  /* Hero section adjustments */
-  .hero-layout {
-    flex-direction: row;
-    align-items: center;
-  }
-  
-  .hero-content, .hero-showcase {
-    flex: 1;
-    width: 50%;
-  }
-  
-  .hero-showcase {
-    max-width: 500px;
-  }
-  
-  .hero-proof {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  
+
   /* Categories & Products grids */
   .popular-categories-grid {
     grid-template-columns: repeat(2, 1fr);
